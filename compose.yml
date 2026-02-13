@@ -1,0 +1,10 @@
+services:
+  node:
+    build:
+      context: ./docker/node
+      dockerfile: Dockerfile
+    volumes:
+      - ${TARGET_PROJECT_PATH}:/app
+      # node_modulesだけはローカル側に書き戻さない
+      - /app/node_modules
+    tty: true
